@@ -1,0 +1,17 @@
+# Node modules
+node_modules/
+
+# Cypress output
+cypress/videos/
+cypress/screenshots/
+
+# Env files
+cypress.env.json
+
+# Logs and temporary files
+.DS_Store
+*.log
+
+# IDE and OS metadata
+.vscode/
+.idea/
