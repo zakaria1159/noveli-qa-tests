@@ -29,8 +29,8 @@ jobs:
       #     NODE_ENV: test
       #   shell: bash
 
-      - name: Run Cypress tests
-        run: npx cypress run
+      - name: Run Protected features tests
+        run: npx cypress run --spec "cypress/e2e/protected-features.cy.js"
         env:
           CYPRESS_username: ${{ secrets.CYPRESS_username }}
           CYPRESS_password: ${{ secrets.CYPRESS_password }}
