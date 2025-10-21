@@ -2,12 +2,14 @@
 
 // Login command
 Cypress.Commands.add('login', () => {
+  const username = Cypress.env('username');
+  const password = Cypress.env('password');
   cy.request({
     method: 'POST',
     url: '/api/login',
     body: {
-      username: 'Zakaria1159',
-      password: 'zakaria123'
+      username: username,
+      password: password
     }
   }).then((response) => {
     expect(response.status).to.eq(200);
