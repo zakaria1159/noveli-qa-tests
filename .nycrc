@@ -1,0 +1,23 @@
+{
+  "all": true,
+  "include": [
+    "src/**/*.js",
+    "src/**/*.jsx",
+    "src/**/*.ts",
+    "src/**/*.tsx"
+  ],
+  "exclude": [
+    "**/*.spec.js",
+    "**/*.test.js",
+    "**/node_modules/**",
+    "**/cypress/**",
+    "**/dist/**",
+    "**/build/**"
+  ],
+  "reporter": ["html", "json", "text", "lcov"],
+  "report-dir": "coverage",
+  "sourceMap": true,
+  "instrument": true,
+  "cache": true,
+  "temp-dir": ".nyc_output"
+}

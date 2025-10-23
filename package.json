@@ -4,17 +4,31 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "cypress:open": "cypress open",
-    "cypress:run": "cypress run --browser chrome",
-    "postman:run": "newman run postman/noveli_collection.json --environment postman/noveli_env.json",
-    "ci:run": "npm run cypress:run && npm run postman:run"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    
+    "test:e2e": "cypress run",
+    "test:e2e:open": "cypress open",
+    "test:e2e:coverage": "cypress run --browser chrome --config video=false",
+    
+    "coverage:report": "nyc report --reporter=html --reporter=text --reporter=json-summary",
+    "coverage:merge": "nyc merge coverage/.nyc_output coverage/coverage-final.json",
+    "coverage:check": "nyc check-coverage --lines 70 --functions 70 --branches 65 --statements 70",
+    "coverage:open": "open coverage/index.html",
+    
+    "test:coverage": "npm run test:e2e:coverage && npm run coverage:report",
+    "test:full": "npm run test:e2e:coverage && npm run coverage:report && npm run coverage:check"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@cypress/code-coverage": "^3.14.7",
     "cross-env": "^10.1.0",
     "cypress": "^15.5.0",
-    "newman": "^6.2.1"
+    "istanbul-lib-coverage": "^3.2.2",
+    "newman": "^6.2.1",
+    "nyc": "^17.1.0"
   }
 }

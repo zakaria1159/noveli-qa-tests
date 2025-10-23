@@ -15,3 +15,17 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands'
+import '@cypress/code-coverage/support';
+
+beforeEach(() => {
+  cy.log('Coverage tracking active');
+});
+
+afterEach(() => {
+  // This ensures coverage data is sent after each test
+  cy.window().then((win) => {
+    if (win.__coverage__) {
+      cy.task('coverage', win.__coverage__, { log: false });
+    }
+  });
+});
